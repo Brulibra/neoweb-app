@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import {
   Image,
@@ -10,53 +9,25 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import ProjectView from "./src/components/ProjectView";
 
 export default function App() {
-  const [username, setUsername] = useState("");
-  const [useremail, setUseremail] = useState("");
-
-  function handleSingIn() {
-    const data = {
-      username,
-      useremail
-    };
-    console.log(data);
-  }
-
   return (
     <SafeAreaView style={styles.safeArea}>
-    <KeyboardAvoidingView>
-      <View>
-        <Text style={styles.title}>Olá Adriana </Text>
-        <Image source={require('./assets/images/profile-pic.png')}/>
-      </View>
+      <KeyboardAvoidingView style={styles.container}>
+        <Text style={styles.title}>Olá Adriana</Text>
 
-      <View>
-      <TextInput
-          style={styles.input}
-          onChange={setUsername}
-          value={username}
-          autoCorrect= {false}
-          placeholder="Seu username"
-        />
-        <TextInput
-          style={styles.input}
-          onChange={setUseremail}
-          value={useremail}
-          autoCorrect={false}
-          placeholder="Seu email"
-        />
+        <View style={styles.projectSlider}>
+          <Text style={styles.title}>Seus projetos</Text>
+          <Image source={require("./src/assets/images/profile-pic.png")} />
+        </View>
 
-        <TouchableOpacity>
-          <Text>Acessar</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity>
-          <Text>Criar conta</Text>
-        </TouchableOpacity>
-        
-      </View>
-    </KeyboardAvoidingView>
+        <Text style={styles.title}>Daily Review</Text>
+
+        <View style={styles.projectList}>
+          <ProjectView />
+        </View>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
@@ -64,7 +35,26 @@ export default function App() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
+  },
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    backgroundColor: "#ffff",
+    borderWidth: 30,
+    borderColor: "#FFF",
+  },
+  projectSlider: {
+    flex: 1,
+    justifyContent: "space-evenly",
+    alignContent: "flex-start",
+    alignItems: "center",
+    backgroundColor: "#87E4A7C7",
+  },
+  projectList: {
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "blue",
   },
+ 
 });
