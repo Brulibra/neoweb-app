@@ -4,10 +4,10 @@
     "slug": "neoweb-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/icons/dashboard-fill-green.svg",
+    "icon": "./src/assets/icons/dashboard-fill-green.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./src/assets/icons/dashboard-fill-green.svg",
+      "image": "./src/assets/icons/dashboard-fill-green.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -19,12 +19,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/icons/dashboard-fill-green.svg",
+        "foregroundImage": "./src/assets/icons/dashboard-fill-green.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./src/assets/icons/dashboard-fill-green.svg"
+      "favicon": "./src/assets/icons/dashboard-fill-green.png"
     }
   }
 }
