@@ -1,20 +1,70 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
+import {
+  Image,
+  KeyboardAvoidingView,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 export default function App() {
+  const [username, setUsername] = useState("");
+  const [useremail, setUseremail] = useState("");
+
+  function handleSingIn() {
+    const data = {
+      username,
+      useremail
+    };
+    console.log(data);
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.safeArea}>
+    <KeyboardAvoidingView>
+      <View>
+        <Text style={styles.title}>Olá Adriana </Text>
+        <Image source={require('./assets/images/profile-pic.png')}/>
+      </View>
+
+      <View>
+      <TextInput
+          style={styles.input}
+          onChange={setUsername}
+          value={username}
+          autoCorrect= {false}
+          placeholder="Seu username"
+        />
+        <TextInput
+          style={styles.input}
+          onChange={setUseremail}
+          value={useremail}
+          autoCorrect={false}
+          placeholder="Seu email"
+        />
+
+        <TouchableOpacity>
+          <Text>Acessar</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity>
+          <Text>Criar conta</Text>
+        </TouchableOpacity>
+        
+      </View>
+    </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  safeArea: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
