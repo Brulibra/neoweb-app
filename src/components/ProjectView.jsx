@@ -1,8 +1,10 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
-import Diviser from "./Diviser.js";
+import MyIcons from "../layout/MyIcons";
 
-export default function ProjectView() {
+export default function ProjectView({ projectTitle, notification, status }) {
+  const businessCaseIcon = require('../assets/icons/business-case.png');
+  
   return (
     <View style={styles.projectView}>
       <View style={styles.container}>
@@ -10,11 +12,11 @@ export default function ProjectView() {
           <Image source={require("../assets/icons/business-case.png")} />
         </View>
         <View style={styles.containerTitle}>
-          <Text style={styles.title}>Seus projetos</Text>
+          <Text style={styles.title}>{projectTitle}</Text>
           <View style={styles.container}>
-            <Text style={styles.subTitle}>10:00 AM</Text>
+            <Text style={styles.subTitle}>{notification}</Text>
             <Diviser style={styles.subTitle} />
-            <Text style={styles.subTitle}>Finalizado</Text>
+            <Text style={styles.subTitle}>{status}</Text>
           </View>
         </View>
         <TouchableOpacity style={styles.image}>
@@ -25,11 +27,15 @@ export default function ProjectView() {
   );
 }
 
+function Diviser() {
+  return <Text style={styles.diviser}> • </Text>;
+}
+
 const styles = StyleSheet.create({
   projectView: {
     borderRadius: "24",
     borderWidth: "15",
-    borderColor: '#F8F8F6',
+    borderColor: "#F8F8F6",
     marginBottom: 12,
   },
   container: {
@@ -60,5 +66,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     color: "gray",
+  },
+  diviser: {
+    fontWeight: "bold",
+    color: "#9B9B9B",
   },
 });

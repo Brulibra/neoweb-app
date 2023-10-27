@@ -1,31 +1,44 @@
-import { useState } from "react";
+import React from "react";
 import {
   Image,
   KeyboardAvoidingView,
   SafeAreaView,
   StyleSheet,
   Text,
-  TextInput,
-  TouchableOpacity,
   View,
 } from "react-native";
 import ProjectView from "./src/components/ProjectView";
-
+import ProjectSlider from "./src/components/ProjectSlider";
 export default function App() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <KeyboardAvoidingView style={styles.container}>
-        <Text style={styles.title}>Olá Adriana</Text>
-
-        <View style={styles.projectSlider}>
-          <Text style={styles.title}>Seus projetos</Text>
-          <Image source={require("./src/assets/images/profile-pic.png")} />
+        <View>
+          <Text style={styles.title}>Olá Adriana</Text>
         </View>
 
-        <Text style={styles.title}>Daily Review</Text>
+        <ProjectSlider />
+
+        <View>
+          <Text style={styles.title}>Daily Review</Text>
+        </View>
 
         <View style={styles.projectList}>
-          <ProjectView />
+          <ProjectView
+            projectTitle={"Projeto1"}
+            notification={"10:00 AM"}
+            status={"Finalizado"}
+          />
+          <ProjectView
+            projectTitle={"Projeto2"}
+            notification={"04:00 PM"}
+            status={"Adiado"}
+          />
+          <ProjectView
+            projectTitle={"Projeto3"}
+            notification={"10:00 AM"}
+            status={"Finalizado"}
+          />
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -56,5 +69,4 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "blue",
   },
- 
 });
