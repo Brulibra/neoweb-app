@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
-import ProjectView from "../components/ProjectView";
+import ProjectView from "../components/ProjectView.jsx";
 
 export default function NewDemand() {
   <SafeAreaView style={style.container}>
